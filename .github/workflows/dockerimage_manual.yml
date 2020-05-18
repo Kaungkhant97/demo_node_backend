@@ -21,4 +21,4 @@ jobs:
     - name: Tag docker Image
       run: docker tag backend_image:latest docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
     - name: push docker Image
-      run: docker tag docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
+      run: docker push docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
