@@ -21,8 +21,8 @@ jobs:
     - name: Tag docker Image
       run: docker tag backend_image:latest registry.heroku.com/demo_strapi_backend/web
 
-    - name: push docker Image
-      run: docker push registry.heroku.com/demo_strapi_backend/web
+    # - name: push docker Image
+    #   run: docker push registry.heroku.com/demo_strapi_backend/web
     - name: Login to Heroku Container registry
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
@@ -30,8 +30,8 @@ jobs:
     - name: Build and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:push -a demo-strapi-backend web 
+      run: heroku container:push -a registry.heroku.com/demo_strapi_backend/web web 
     - name: Release
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:release -a demo-strapi-backend web 
+      run: heroku container:release -a registry.heroku.com/demo_strapi_backend/web web 
