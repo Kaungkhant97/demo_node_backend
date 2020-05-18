@@ -1,0 +1,7 @@
+Install nodejs, mongodb
+
+Look db config on config.js
+
+Install dependencies by `npm install`
+
+Run application with **nodemon** with `npm start`
