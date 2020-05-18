@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL || process.env.MONGODB_URI ||
-    'mongodb://mongo/HelloMongoose';
+    'mongodb://mongo:27017/dev';
 mongoose.connect(uristring, function (err, res) {
     if (err) {
         console.log('ERROR connecting to: ' + uristring + '. ' + err);

@@ -10,8 +10,8 @@ services:
     links:
       - mongo
     environment: 
-        - MONGODB_URI=mongodb://mongo/HelloMongoose
-        
+        - MONGODB_URI=mongodb://heroku_xgptbvzv:97d36m33l0mii6j6u1h6dlu49d@ds111922.mlab.com:11922/heroku_xgptbvzv
+
   mongo:
     container_name: mongo
     image: mongo
