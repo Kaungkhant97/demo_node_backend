@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  backend
+  labels:
+    name:  backend
+    type: app
+spec:
+  selector:
+    matchLabels:
+      name: backend
+  
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+
+  replicas: 2  
+  template:
+    metadata:
+      labels:
+        name:  backend
+    spec:
+    
+     
+
+      containers: 
+        
+      - image:  docker.pkg.github.com/kaungkhant97/demo_node_backend/old_img:1.0
+        name:  backend
+        ports:
+          - containerPort: 5000
+
+          
+      
+      imagePullSecrets:
+        - name: regsecret   
+      restartPolicy: Always
+      
