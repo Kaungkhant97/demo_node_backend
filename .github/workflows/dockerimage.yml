@@ -21,5 +21,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: ${{ secrets.DOCKER_REPO }}
         dockerfile: node_backend/Dockerfile
-        repository: backend
         path: node_backend
+        repository: backend
+        
