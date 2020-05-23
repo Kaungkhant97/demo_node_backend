@@ -2,3 +2,4 @@ node_modules
 .idea
 data/
 data/*
+deployment_scripts/soft-repo-kubeconfig.yaml
