@@ -22,3 +22,22 @@ jobs:
       run: docker tag backend_image:latest docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
     - name: push docker Image
       run: docker push docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
+      
+    - name: Kubernetes set context
+      uses: Azure/k8s-set-context@v1
+      with:    
+         kubeconfig: ${{ secrets.do_kube_config }}
+        # If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen
+        # context: # optional, default is 
+        # Cluster Url
+       #  k8s-url: # optional, default is 
+         # Service account secret. Run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name. Copy the ouptut of kubectl get secret <service-account-secret-name> -o yaml
+         #k8s-secret: # optional, default is 
+    - name: Deploy to Kubernetes cluster
+      uses: Azure/k8s-deploy@v1
+      with:
+        manifests: deployment_scripts/*
+        
+ 
+     
+      
