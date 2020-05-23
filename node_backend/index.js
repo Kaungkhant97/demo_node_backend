@@ -28,7 +28,12 @@ app.post("/auth", auth.getToken);
 app.use("/users", user);
 app.use("/subject", subject); 
 app.use("/events", event);
-app.use("/location", location);
+app.use("/events", event);
+
+app.get('/', function (req, res) {
+    console.log("Got a GET request for the homepage");
+   res.send('Hello GET');
+ })
 
 
 // error handlers
