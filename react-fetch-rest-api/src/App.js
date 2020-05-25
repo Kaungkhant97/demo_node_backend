@@ -32,7 +32,9 @@ class App extends Component {
     todos: []
   }
   // [...]
+ 
   componentDidMount() {
+    const url = 'http://backendservice';
     fetch('http://jsonplaceholder.typicode.com/todos')
     .then(res => res.json())
     .then((data) => {
