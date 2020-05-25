@@ -48,7 +48,7 @@ jobs:
             deployment_scripts/backend_deploy.yaml
             deployment_scripts/backend_service.yaml
             deployment_scripts/frontend_deploy.yaml
-            deployment_scripts/backend_deploy.yaml
+            deployment_scripts/frontend_service.yaml
         
  
      
