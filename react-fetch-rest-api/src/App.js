@@ -35,7 +35,7 @@ class App extends Component {
  
   componentDidMount() {
     const url = 'http://backendservice';
-    fetch('http://jsonplaceholder.typicode.com/todos')
+    fetch('http://backendservice')
     .then(res => res.json())
     .then((data) => {
       this.setState({ todos: data })

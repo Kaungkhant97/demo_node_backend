@@ -29,7 +29,7 @@ spec:
         
       - image:  docker.pkg.github.com/kaungkhant97/demo_node_backend/front_end:latest
         imagePullPolicy: Always
-        name:  backend
+        name:  frontend
         ports:
           - containerPort: 3000
 
