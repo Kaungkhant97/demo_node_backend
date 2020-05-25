@@ -14,14 +14,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build node_backend --file node_backend/Dockerfile --tag backend_image:latest
+   
     - name: Login to Github package
       run: docker login docker.pkg.github.com -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Tag docker Image
+    - name: Build the Backend Docker image
+      run: docker build node_backend --file node_backend/Dockerfile --tag backend_image:latest
+    - name: Tag Backend docker Image
       run: docker tag backend_image:latest docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
-    - name: push docker Image
+    - name: push Backend docker Image
       run: docker push docker.pkg.github.com/kaungkhant97/demo_node_backend/backend_image:latest
+    - name: Build the Frontend Docker image
+      run: docker build react-fetch-rest-api --file react-fetch-rest-api/Dockerfile --tag front_end:latest
+    - name: Tag Frontend docker Image
+      run: docker tag front_end:latest docker.pkg.github.com/kaungkhant97/demo_node_backend/front_end:latest
+    - name: push Frontend docker Image
+      run: docker push docker.pkg.github.com/kaungkhant97/demo_node_backend/front_end:latest
       
     - name: Kubernetes set context
       uses: Azure/k8s-set-context@v1
@@ -40,6 +47,8 @@ jobs:
             deployment_scripts/db-deploy.yaml
             deployment_scripts/backend_deploy.yaml
             deployment_scripts/backend_service.yaml
+            deployment_scripts/frontend_deploy.yaml
+            deployment_scripts/backend_deploy.yaml
         
  
      
